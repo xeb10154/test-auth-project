@@ -11,7 +11,7 @@ namespace test_auth_project.Controllers
     // Authorization library is integrated with Auth0. Role-based auth can be added later here.
     [ApiController]
     [Route("[controller]")]
-    [Authorize]
+    // [Authorize]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
@@ -27,6 +27,7 @@ namespace test_auth_project.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public IEnumerable<WeatherForecast> Get()
         {
             var rng = new Random();
