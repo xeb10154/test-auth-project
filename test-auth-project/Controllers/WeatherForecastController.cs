@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 
 namespace test_auth_project.Controllers
 {
+    // Authorization library is integrated with Auth0. Role-based auth can be added later here.
     [ApiController]
     [Route("[controller]")]
     [Authorize]
