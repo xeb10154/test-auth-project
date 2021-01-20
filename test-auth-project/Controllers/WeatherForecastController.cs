@@ -27,7 +27,7 @@ namespace test_auth_project.Controllers
         }
 
         [HttpGet]
-        [Authorize]
+        // [Authorize]
         public IEnumerable<WeatherForecast> Get()
         {
             var rng = new Random();
