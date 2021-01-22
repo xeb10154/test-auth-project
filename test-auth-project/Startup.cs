@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -27,17 +26,6 @@ namespace test_auth_project
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-
-            // Add Authentication Services
-            services.AddAuthentication(options =>
-            {
-                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            }).AddJwtBearer(options =>
-            {
-                options.Authority = "https://dev-6u8b8k1u.eu.auth0.com/";
-                options.Audience = "weather-api";
-            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,10 +46,6 @@ namespace test_auth_project
             {
                 endpoints.MapControllers();
             });
-
-            // Enable authentication middleware
-            app.UseAuthentication();
-
         }
     }
 }
